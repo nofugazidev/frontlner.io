@@ -1,0 +1,75 @@
+@use "./mixins" as *;
+$color-bg: #1e1e24;
+$color-calc: #000000;
+$color-display-bg: #222222;
+$color-text: #ffffff;
+$color-btn-op: #ff0f0a;
+$color-btn-num: #333333;
+$color-btn-clear: #a5a5a5;
+$color-btn-eq: #218838;
+
+body {
+  background-color: $color-bg;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+// calculator component
+.calculator {
+  background-color: $color-calc;
+  width: 100%;
+  max-width: 320px;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.4);
+
+  &__display {
+    background-color: $color-display-bg;
+    color: $color-text;
+    font-size: 40px;
+    text-align: right;
+    padding: 15px 10px;
+    border-radius: 6px;
+    margin-bottom: 15px;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+  }
+}
+
+// btn utility classes
+.btn {
+  border: none;
+  background-color: $color-btn-num;
+  color: $color-text;
+  font-size: 24px;
+  padding: 18px 0;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: opacity 0.1s ease;
+
+  &:hover {
+    opacity: 0.8;
+  }
+
+  &--operator {
+    background-color: $color-btn-op;
+  }
+  &--clear {
+    background-color: $color-btn-clear;
+    color: #000000;
+    grid-column: span 3;
+  }
+  &--zero {
+    grid-column: span 2;
+  }
+}

@@ -61,6 +61,12 @@ equalsButton.addEventListener("click", () => {
     case "*":
       result = prev * current;
       break;
+    case "%":
+      result = current * 0.1; //come back to this later
+      break;
+    case "**":
+      result = prev * current; // come back to this later
+      break;
     case "/":
       result = current === 0 ? "Error" : prev / current;
       break;
@@ -72,5 +78,14 @@ equalsButton.addEventListener("click", () => {
   prevVal = null;
   activeOperation = null;
   isResetOnNextKey = true;
+  updateDisplay();
+});
+
+//clear button
+clearButton.addEventListener("click", () => {
+  currentVal = "0";
+  prevVal = null;
+  activeOperation = null;
+  isResetOnNextKey = false;
   updateDisplay();
 });

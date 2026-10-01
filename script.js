@@ -21,18 +21,56 @@ function updateDisplay() {
 //get user input by tracking the numbers they pressed
 numberButtons.forEach((button) => {
   button.addEventListener("click", () => {
-    const num = button.getAttribute('data-number');
+    const num = button.getAttribute("data-number");
 
-    if(currentVal === '0' || isResetOnNextKey){
-        currentVal = num;
-        isResetOnNextKey = false;
+    if (currentVal === "0" || isResetOnNextKey) {
+      currentVal = num;
+      isResetOnNextKey = false;
     } else {
-        currentVal += num;
+      currentVal += num;
     }
 
-    updateDisplay()
+    updateDisplay();
   });
 });
 
 //handling operators
+operatorButtons.forEach((button) => {
+  button.addEventListener("click", () => {
+    prevVal = currentVal;
+    activeOperation = button.getAttribute("data-operator");
+    isResetOnNextKey = true;
+  });
+});
 
+//calculating output
+equalsButton.addEventListener("click", () => {
+  if (!activeOperation || prevVal === null) return;
+
+  const prev = parseFloat(prevVal);
+  const current = parseFloat(currentVal);
+  let result = 0;
+
+  switch (activeOperation) {
+    case "+":
+      result = prev + current;
+      break;
+    case "-":
+      result = prev - current;
+      break;
+    case "*":
+      result = prev * current;
+      break;
+    case "/":
+      result = current === 0 ? "Error" : prev / current;
+      break;
+    default:
+      return;
+  }
+
+  currentVal = String(result);
+  prevVal = null;
+  activeOperation = null;
+  isResetOnNextKey = true;
+  updateDisplay();
+});

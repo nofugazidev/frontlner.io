@@ -10,18 +10,18 @@ body {
 
 .calculator {
   background-color: #000000;
+  padding: 20px;
   width: 100%;
   max-width: 320px;
-  padding: 20px;
   border-radius: 12px;
   box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.4);
 }
 .calculator__display {
   background-color: #222222;
   color: #ffffff;
+  padding: 15px 10px;
   font-size: 40px;
   text-align: right;
-  padding: 15px 10px;
   border-radius: 6px;
   margin-bottom: 15px;
   overflow-x: auto;
@@ -34,11 +34,11 @@ body {
 }
 
 .btn {
-  border: none;
   background-color: #333333;
   color: #ffffff;
+  padding: 18px 0px;
+  border: none;
   font-size: 24px;
-  padding: 18px 0;
   border-radius: 6px;
   cursor: pointer;
   transition: opacity 0.1s ease;
@@ -47,11 +47,11 @@ body {
   opacity: 0.8;
 }
 .btn--operator {
-  background-color: #ff0f0a;
+  background-color: #c6860f;
 }
 .btn--clear {
   background-color: #a5a5a5;
-  color: #000000;
+  padding: #000000;
   grid-column: span 3;
 }
 .btn--zero {

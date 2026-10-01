@@ -3,13 +3,13 @@ $color-bg: #1e1e24;
 $color-calc: #000000;
 $color-display-bg: #222222;
 $color-text: #ffffff;
-$color-btn-op: #ff0f0a;
+$color-btn-op: #c6860f;
 $color-btn-num: #333333;
 $color-btn-clear: #a5a5a5;
 $color-btn-eq: #218838;
 
 body {
-  background-color: $color-bg;
+  @include styleUtils($color-bg);
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   display: flex;
   justify-content: center;
@@ -20,19 +20,16 @@ body {
 
 // calculator component
 .calculator {
-  background-color: $color-calc;
+  @include styleUtils($color-calc, 20px);
   width: 100%;
   max-width: 320px;
-  padding: 20px;
   border-radius: 12px;
   box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.4);
 
   &__display {
-    background-color: $color-display-bg;
-    color: $color-text;
+    @include styleUtils($color-display-bg, 15px 10px, $color-text);
     font-size: 40px;
     text-align: right;
-    padding: 15px 10px;
     border-radius: 6px;
     margin-bottom: 15px;
     overflow-x: auto;
@@ -48,11 +45,9 @@ body {
 
 // btn utility classes
 .btn {
+  @include styleUtils($color-btn-num, 18px 0px, $color-text);
   border: none;
-  background-color: $color-btn-num;
-  color: $color-text;
   font-size: 24px;
-  padding: 18px 0;
   border-radius: 6px;
   cursor: pointer;
   transition: opacity 0.1s ease;
@@ -62,11 +57,10 @@ body {
   }
 
   &--operator {
-    background-color: $color-btn-op;
+    @include styleUtils($color-btn-op);
   }
   &--clear {
-    background-color: $color-btn-clear;
-    color: #000000;
+    @include styleUtils($color-btn-clear, #000000);
     grid-column: span 3;
   }
   &--zero {

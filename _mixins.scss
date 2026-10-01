@@ -1,0 +1,5 @@
+@mixin styleUtils($background-color: null, $padding: null, $color: null){
+    background-color: $background-color;
+    color: $color;
+    padding: $padding;
+}

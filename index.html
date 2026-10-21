@@ -8,26 +8,103 @@
   </head>
   <body class="bg-slate-50 text-slate-900 min-h-screen">
     <header class="border-b border-slate-200 bg-white sticky top-0 z-40">
-      <div class="max-w-4xl mx-auto px-4 h-16 flex items-center justify-between">
-        <h1 class="text-xl font-bold tracking-tight bg-gradient-to-r from-blue-600 to-indigo-500 bg-clip-text text-transparent">Dev-Notes</h1>
+      <div
+        class="max-w-4xl mx-auto px-4 h-16 flex items-center justify-between"
+      >
+        <h1
+          class="text-xl font-bold tracking-tight bg-gradient-to-r from-blue-600 to-indigo-500 bg-clip-text text-transparent"
+        >
+          Dev-Notes
+        </h1>
       </div>
     </header>
     <main class="max-w-4xl mx-auto p-4">
-        <section class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm mb-8">
-            <h2 class="text-lg font-semibold mb-4 capitalize">create new post</h2>
-            <form id="postForm" class="space-y-4">
-                <div>
-                    <label for="title" class="block text-sm font-normal mb-1 capitalize">title</label>
-                    <input type="text" id="title" required  placeholder="An elegant approach to state management..." class="w-full px-3 py-2 border border-slate-200 rounded-lg bg-transparent focus:outline-none focus:ring-1 focus:ring-blue-500"/>
-                </div>
+      <!--creating post-->
+      <section
+        class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm mb-8"
+      >
+        <h2 class="text-lg font-semibold mb-4 capitalize">create new post</h2>
+        <form id="postForm" class="space-y-4">
+          <div>
+            <label for="title" class="block text-sm font-normal mb-1 capitalize"
+              >title</label
+            >
+            <input
+              type="text"
+              id="title"
+              required
+              placeholder="An elegant approach to state management..."
+              class="w-full px-3 py-2 border border-slate-200 rounded-lg bg-transparent focus:outline-none focus:ring-1 focus:ring-blue-500"
+            />
+          </div>
 
-                 <div>
-                    <label for="content" class="block text-sm font-normal mb-1 capitalize">content</label>
-                    <textarea type="text" id="content" required rows="4" placeholder="Write your markdown or thought here..." class="w-full px-3 py-2 border border-slate-200 rounded-lg bg-transparent focus:outline-none focus:ring-1 focus:ring-blue-500"></textarea>
-                </div>
-                <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded-lg transition-colors capitalize">publish post</button>
-            </form>
-        </section>
+          <div>
+            <label
+              for="content"
+              class="block text-sm font-normal mb-1 capitalize"
+              >content</label
+            >
+            <textarea
+              type="text"
+              id="content"
+              required
+              rows="4"
+              placeholder="Write your markdown or thought here..."
+              class="w-full px-3 py-2 border border-slate-200 rounded-lg bg-transparent focus:outline-none focus:ring-1 focus:ring-blue-500"
+            ></textarea>
+          </div>
+          <button
+            type="submit"
+            class="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded-lg transition-colors capitalize"
+          >
+            publish post
+          </button>
+        </form>
+      </section>
+
+      <!--feed-->
+      <section>
+        <h2 class="text-xl font-bold mb-4 flex items-center gap-2 capitalize">
+          <span>recent articles</span>
+          <span id="postCount">0</span>
+        </h2>
+
+        <div id="blogContainer" class="space-y-4"></div>
+      </section>
     </main>
+
+    <!-- edit post -->
+    <div
+      id="editModal"
+      class="fixed inset-0 bg-slate-950/50 backdrop-blur-sm flex items-center hidden justify-center z-50 p-4"
+    >
+      <div class="bg-white w-full max-w-lg rounded-xl border border-slate-200 p-6 shadow-xl transform transition-all">
+        <div class="flex justify-between items-center mb-4">
+          <h3 class="text-lg font-bold capitalize">edit post</h3>
+          <button id="closeModal" class="text-slate-400 hover:text-slate-600 text-xl font-bold cursor-pointer">&times;</button>
+        </div>
+        <form id="editForm" class="space-y-4">
+          <input type="hidden" id="editId" />
+          <div>
+            <label for="editTitle" class="block text-sm font-normal mb-1 capitalize">title</label>
+            <input type="text" id="editTitle" class="w-full px-3 py-2 border border-slate-300 rounded-lg bg-transparent focus:outline-none focus:ring-1 focus:ring-blue-500" />
+          </div>
+          <div>
+            <label for="editContent" class="block text-sm font-normal mb-1 capitalize">content</label>
+            <textarea
+              type="text"
+              id="editContent"
+              required
+              rows="4"
+              class="w-full px-3 py-2 border border-slate-300 rounded-lg bg-transparent focus:outline-none focus:ring-1 focus:ring-blue-500"
+            ></textarea>
+          </div>
+          <div  class="flex justify-end gap-3 pt-2">
+            <button type="button" id="cancelModal" class="px-4 py-2 cursor-pointer border-slate-300 rounded-lg text-sm font-medium hover:bg-slate-50 transition-colors capitalize">cancel</button>
+            <button type="submit" class="px-4 py-2 border border-blue-600 rounded-lg text-sm font-medium hover:bg-blue-700 transition-colors hover:text-white text-blue-600 cursor-pointer capitalize">save changes</button>
+          </div>
+        </form>
+      </div>
+    </div>
   </body>
 </html>

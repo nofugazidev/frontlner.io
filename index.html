@@ -3,7 +3,31 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Moustafi Dev Blog</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
   </head>
-  <body>blog site</body>
+  <body class="bg-slate-50 text-slate-900 min-h-screen">
+    <header class="border-b border-slate-200 bg-white sticky top-0 z-40">
+      <div class="max-w-4xl mx-auto px-4 h-16 flex items-center justify-between">
+        <h1 class="text-xl font-bold tracking-tight bg-gradient-to-r from-blue-600 to-indigo-500 bg-clip-text text-transparent">Dev-Notes</h1>
+      </div>
+    </header>
+    <main class="max-w-4xl mx-auto p-4">
+        <section class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm mb-8">
+            <h2 class="text-lg font-semibold mb-4 capitalize">create new post</h2>
+            <form id="postForm" class="space-y-4">
+                <div>
+                    <label for="title" class="block text-sm font-normal mb-1 capitalize">title</label>
+                    <input type="text" id="title" required  placeholder="An elegant approach to state management..." class="w-full px-3 py-2 border border-slate-200 rounded-lg bg-transparent focus:outline-none focus:ring-1 focus:ring-blue-500"/>
+                </div>
+
+                 <div>
+                    <label for="content" class="block text-sm font-normal mb-1 capitalize">content</label>
+                    <textarea type="text" id="content" required rows="4" placeholder="Write your markdown or thought here..." class="w-full px-3 py-2 border border-slate-200 rounded-lg bg-transparent focus:outline-none focus:ring-1 focus:ring-blue-500"></textarea>
+                </div>
+                <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded-lg transition-colors capitalize">publish post</button>
+            </form>
+        </section>
+    </main>
+  </body>
 </html>
